@@ -1,5 +1,7 @@
 package BankAccount;
 
+import java.util.Scanner;
+
 public class BankAccount {
 	private String bankAccountName;
 	private int bankAccountId;
@@ -29,6 +31,50 @@ public class BankAccount {
 		return bankAccountId;
 	}
 	
-	
+	public void optionSystem() {
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Type an option. (Options: balance, get, put, exit)");
+		
+		String option = scan.nextLine();
+		
+		if (option.equals("balance")) {
+			System.out.println(getBalance());	
+			optionSystem();
+		} 
+		
+		else if (option.equals("get")) {
+			System.out.println("Amount to withdraw");
+			
+			double withdraw = Double.parseDouble(scan.next());
+			
+			getMoney(withdraw);
+			
+			System.out.println("Your new balance is: " + getBalance());
+			optionSystem();
+		} 
+		
+		else if (option.equals("put")) {
+			System.out.println("Amount to put");
+			
+			double put = Double.parseDouble(scan.next());
+			
+			putMoney(put);
+			
+			System.out.println("Your new balance is: " + getBalance());
+			optionSystem();
+			
+		} else if (option.equals("exit")) {
+			System.out.println("Thanks for your trust, goodbye");
+			System.exit(1);
+		}
+		
+		else {
+			System.out.println("Not a valid option");
+			optionSystem();
+		}
+		
+		scan.close();
+	}
 	
 }
