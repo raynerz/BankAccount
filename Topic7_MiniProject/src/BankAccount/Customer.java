@@ -1,5 +1,8 @@
 package BankAccount;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Customer {
 	private String customerName;
 	private String customerAddress;
@@ -22,7 +25,5 @@ public class Customer {
 	public BankAccount getBankAccount() {
 		return bankAccount;
 	}
-	
-	
-	
+		
 }

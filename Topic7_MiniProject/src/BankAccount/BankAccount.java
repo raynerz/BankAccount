@@ -3,6 +3,7 @@ package BankAccount;
 import java.util.Scanner;
 
 public class BankAccount {
+	@SuppressWarnings("unused")
 	private String bankAccountName;
 	private int bankAccountId;
 	private double balance;
@@ -32,6 +33,7 @@ public class BankAccount {
 	}
 	
 	public void optionSystem() {
+		try {
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("Type an option. (Options: balance, get, put, exit)");
@@ -75,6 +77,10 @@ public class BankAccount {
 		}
 		
 		scan.close();
+		} catch (NumberFormatException e){
+			System.out.println("When putting or withdrawing money, only numbers are allowed");
+			optionSystem();
+		}
 	}
 	
 }
